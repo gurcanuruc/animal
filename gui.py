@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter import filedialog
 
-#from tkinter.ttk import *
-
 def browse_file():
     file = filedialog.askopenfile(mode="r",
                                   filetypes=[('Photos', '*.png'),
