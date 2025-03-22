@@ -1,11 +1,19 @@
 from tkinter import *
-#from tkinter.ttk import *
+from tkinter import filedialog
 
-def button_clicked():
-    print("bunun yerine pencere açılıp fotoğraf seçilecek")
+def browse_file():
+    file = filedialog.askopenfile(mode="r",
+                                  filetypes=[('Photos', '*.png'),
+                                            ('Photos', '*.jpeg'),
+                                            ('Photos', '*.jpg')])
+    if file:
+        print("Choosen file: ", file.name)
+        file.close()
+    else:
+        print("No file choosen.")
+    
 
 window=Tk()
-
 window.title("Animal Recognizer") 
 window.geometry("800x600")
 window.resizable(width=False, height=False)
@@ -22,7 +30,7 @@ btn=Button(window, text ="Choose an image",
            bg ="#424242",
            cursor = "hand2",
            anchor= "center",
-           command=button_clicked,
+           command=browse_file,
            )
 sticker.pack(pady="20")
 btn.pack(pady="100")
